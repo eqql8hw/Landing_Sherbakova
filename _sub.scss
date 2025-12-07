@@ -1,0 +1,138 @@
+@import "./variables";
+@import "./mixin";
+
+.subscribe {
+  &__card {
+    @include surface;
+    height: 320px;
+    background: #060606;
+    border-color: #111;
+    border-radius: 26px;
+    padding: 46px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 28px 36px;
+
+    @include respond(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: $accent;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-size: 15px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 54px;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+
+    @include respond(sm) {
+      font-size: 42px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: $muted;
+    font-size: 14px;
+  }
+
+  &__form {
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__field {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    color: $muted;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__input {
+    padding: 18px 16px;
+    border-radius: 12px;
+    border: 1px solid #1d1d1f;
+    background: #151515;
+    color: $text;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:focus {
+      border-color: #2d2f35;
+      box-shadow: 0 0 0 3px rgba(17, 141, 168, 0.18);
+    }
+  }
+
+  &__button {
+    justify-self: start;
+    padding: 12px 22px;
+    background: #2f9ab9;
+    color: #f8fbff;
+    border-radius: 8px;
+    box-shadow: none;
+
+    &:hover {
+      background: #35a8cb;
+    }
+  }
+
+  &__sparks {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: flex;
+    gap: 12px;
+    z-index: 0;
+  }
+
+  &__spark {
+    width: 4px;
+    height: 26px;
+    background: $accent;
+    border-radius: 999px;
+    opacity: 0.8;
+
+    &--mid {
+      height: 36px;
+      transform: rotate(8deg);
+    }
+
+    &--long {
+      height: 46px;
+      transform: rotate(14deg);
+    }
+  }
+}

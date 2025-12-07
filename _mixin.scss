@@ -1,0 +1,35 @@
+@mixin surface {
+  background: $panel;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow;
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 8px;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+@mixin respond($bp) {
+  @if $bp == md {
+    @media (max-width: 960px) {
+      @content;
+    }
+  } @else if $bp == sm {
+    @media (max-width: 720px) {
+      @content;
+    }
+  }
+}
